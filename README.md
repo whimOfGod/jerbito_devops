@@ -9,6 +9,7 @@
 1. Import in Replit
    - Navigate: Create a Repl / Import from GitHub / From URL
    - Click: Import from GitHub
+1. Press the Run button
 
 ## Organization
 
