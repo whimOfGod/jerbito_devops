@@ -1,4 +1,4 @@
 (executable
  (name main)
  (public_name jerbo)
- (libraries m01))
+ (libraries m01 m02))
