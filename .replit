@@ -2,6 +2,7 @@ compile = ["dune", "build"]
 run = ["dune", "exec", "jerbo"]
 entrypoint = "01/task.ml"
 hidden = ["_build"]
+onBoot = "utop -version"
 
 [languages.OCaml]
 pattern = "**/*.{ml,mli}"
