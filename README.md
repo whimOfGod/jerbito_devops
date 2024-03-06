@@ -6,7 +6,7 @@
    ```
    https://github.com/tarides/jerbito
    ```
-1. Import it in Replit from GitHub
+1. Import in Replit
    - Navigate: Create a Repl / Import from GitHub / From URL
    - Click: Import from GitHub
 
