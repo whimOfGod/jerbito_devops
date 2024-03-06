@@ -1,5 +1,5 @@
 compile = ["dune", "build"]
-run = ["dune", "test"]
+run = ["dune", "exec", "jerbo"]
 entrypoint = "01/task.ml"
 hidden = ["_build"]
 
