@@ -1,12 +1,13 @@
 ## Setup
 
 1. If needed, create a [GitHub](https://github.com) account
-1. If needed, create a [Replit](https://replit.com) account
+1. If needed, create a [Replit](https://replit.com) account (use GitHub authentication)
 1. This project is here:
    ```
    https://github.com/tarides/jerbito
    ```
-1. Import in Replit
+1. Fork it
+1. Import your fork in Replit
    - Navigate: Create a Repl / Import from GitHub / From URL
    - Click: Import from GitHub
 1. Press the Run button
