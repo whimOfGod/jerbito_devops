@@ -1,8 +1,11 @@
-# Expressions et Valeurs
+# Expressions et valeurs
 
 ## Type de données et opérations de base
 
 ### Entiers
+
+Les entiers on le type `int`
+
 ```ocaml
 2 + 2
 ```
@@ -15,10 +18,19 @@
 2 * (20 + 1)
 ```
 
-### Floatants
+Opérations disponibles: `+`, `-`, `*`, `/`, `mod`
+
+### Flottants
+
+Les nombres flottants ont le type `float`
+
 ```ocaml
 2.0 *. Float.pi
 ```
+
+Opérations disponibles: `+.`, `-.`, `*.`, `/.`
+
+L'expression `2 + 2.0` n'est pas valide. Pas de conversions de type implicites.
 
 ### Booléens
 
@@ -29,7 +41,6 @@ true
 ```ocaml
 false
 ```
-
 ```ocaml
 3 > 5
 ```
@@ -45,6 +56,9 @@ if 0 = 1 then 3 else 7
 ```ocaml
 2 * if true then 3 else 7
 ```
+
+Pas d'opérateur ternaire de test. En OCaml, tout ce qui s'éxecute est une expression.
+
 ### Chaînes de caractères
 
 ```ocaml
@@ -55,11 +69,11 @@ if 0 = 1 then 3 else 7
 "Hello" ^ " " ^ "world!"
 ```
 
-## Fonctions et definitions
+## Fonctions et définitions
 
 ### Utilisation de fonctions
 
-#### Un seul paramètre
+#### À un seul paramètre
 
 ```ocaml
 int_of_float
@@ -77,7 +91,9 @@ float_of_int
 float_of_int 42
 ```
 
-#### Plusieurs parametres
+En OCaml on appelle une fonction de la même manière qu'une commande en ligne: sans parenthèses. On sépare les arguments avec des espaces.
+
+#### À plusieurs paramètres
 
 Parentheses!
 
@@ -101,7 +117,7 @@ int_of_float (sqrt (float_of_int (int_of_string "81")))
 "81" |> int_of_string |> float_of_int |> sqrt |> int_of_float
 ```
 
-### Definitions globales
+### Définitions globales
 
 ```ocaml
 let a = 11
@@ -111,7 +127,7 @@ let a = 11
 a * 4 - 1
 ```
 
-### Definition de fonctions
+### Définition de fonctions
 
 ```ocaml
 let sq x = x * x
@@ -129,16 +145,18 @@ let d = 2 * 3 in d * 7
 
 Observer que `d` est libre
 
-#### Enchaînements
+#### Enchaînements de défintions
+
 ```ocaml
 let d = 2 * 3 in
 let e = d * 7 in
 d * e
 ```
 
-Observer que `d` et sont `e` sont libres
+Observer que `d` et `e` sont libres
 
-#### Imbrications
+#### Imbrications de défintions
+
 ```ocaml
 let d =
     let e = 2 * 3 in
@@ -146,7 +164,7 @@ let d =
   d * 7
 ```
 
-Observer que `d` et sont `e` sont libres
+Observer que `d` et `e` sont libres
 
 #### Masquage interne
 
@@ -182,7 +200,7 @@ La valeur de `e` n'a pas changé.
 let sq x = x * x in sq 7 * sq 7
 ```
 
-Vérifier que `sq` est non
+Après, `sq` est libre
 
 ### Fermeture
 
@@ -206,7 +224,7 @@ let j = 7
 k 7
 ```
 
-Try to guess the output of `k 7` before evaluating it.
+Essayer de deviner la valeur de `k 7` avant de l'évaluer.
 
 ### Trivia
 

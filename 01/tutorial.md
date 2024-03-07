@@ -1,35 +1,7 @@
-# Expressions, Values and Results
+# Expressions et valeurs
 
-## Basic Data Type and Operations
+## Type de données et opérations de base
 
-### Integers
+### Entiers
 
-### Floats
-
-### Booleans
-
-### Strings
-
-## Functions and Definitions
-
-### Using Functions
-
-### Global Definitions
-
-### Defining Functions
-
-### Local Definitions
-
-#### Chaining
-
-#### Nesting
-
-#### Inner Shadowing
-
-#### Same-Level Shadowing
-
-#### Local Functions
-
-### Closures
-
-
+1. 

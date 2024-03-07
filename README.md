@@ -23,3 +23,24 @@ Le cours comporte 9 demi journée, chacune a deux parties. Dans les 18 répertoi
 ## Evaluation
 
 À définir
+
+## Documentation disponible en ligne
+
+- La bibliothèque standard du langage: [`Stdlib`](https://ocaml.org/api/index.html)
+- Les tutoriaux officiels
+  1. [_Tour of OCaml_](https://ocaml.org/docs/tour-of-ocaml)
+  1. [_Your First OCaml Program_](https://ocaml.org/docs/your-first-program)
+  1. [_Values and Functions_](https://ocaml.org/docs/values-and-functions)
+  1. [_Basic Data Types_](https://ocaml.org/docs/basic-data-types)
+  1. [_Lists_](https://ocaml.org/docs/lists)
+  1. [_Mutability and Imperative Control Flow_](https://ocaml.org/docs/mutability-imperative-control-flow)
+  1. [_Modules_](https://ocaml.org/docs/modules)
+  1. [_Functors_](https://ocaml.org/docs/functors)
+  1. [_Options_](https://ocaml.org/docs/options)
+  1. [_Arrays_](https://ocaml.org/docs/arrays)
+  1. [_Maps_](https://ocaml.org/docs/maps)
+  1. [_Sets_](https://ocaml.org/docs/sets)
+  1. [_Sequences_](https://ocaml.org/docs/sequences)
+- Le manuel de référence du langage: [The OCaml system](https://ocaml.org/releases/latest/manual.html)
+- Un bon livre: [_Real World OCaml_](https://dev.realworldocaml.org/)
+- Le cours de l'Université de Cornell: [_OCaml Programming_](https://cs3110.github.io/textbook/cover.html)
