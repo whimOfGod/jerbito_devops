@@ -1,8 +1,8 @@
-# Expressions and Values
+# Expressions et Valeurs
 
-## Basic Data Type and Operations
+## Type de données et opérations de base
 
-### Integers
+### Entiers
 ```ocaml
 2 + 2
 ```
@@ -15,12 +15,12 @@
 2 * (20 + 1)
 ```
 
-### Floats
+### Floatants
 ```ocaml
 2.0 *. Float.pi
 ```
 
-### Booleans
+### Booléens
 
 ```ocaml
 true
@@ -45,7 +45,7 @@ if 0 = 1 then 3 else 7
 ```ocaml
 2 * if true then 3 else 7
 ```
-### Strings
+### Chaînes de caractères
 
 ```ocaml
 "Hello world!"
@@ -55,11 +55,11 @@ if 0 = 1 then 3 else 7
 "Hello" ^ " " ^ "world!"
 ```
 
-## Functions and Definitions
+## Fonctions et definitions
 
-### Using Functions
+### Utilisation de fonctions
 
-#### Single Parameter
+#### Un seul paramètre
 
 ```ocaml
 int_of_float
@@ -77,7 +77,7 @@ float_of_int
 float_of_int 42
 ```
 
-#### Multiple Parameters
+#### Plusieurs parametres
 
 Parentheses!
 
@@ -101,7 +101,7 @@ int_of_float (sqrt (float_of_int (int_of_string "81")))
 "81" |> int_of_string |> float_of_int |> sqrt |> int_of_float
 ```
 
-### Global Definitions
+### Definitions globales
 
 ```ocaml
 let a = 11
@@ -111,7 +111,7 @@ let a = 11
 a * 4 - 1
 ```
 
-### Defining Functions
+### Definition de fonctions
 
 ```ocaml
 let sq x = x * x
@@ -121,24 +121,24 @@ let sq x = x * x
 let float_sq x = x *. x
 ```
 
-### Local Definitions
+### Définitions locales
 
 ```ocaml
 let d = 2 * 3 in d * 7
 ```
 
-Check if `d` is unbound
+Observer que `d` est libre
 
-#### Chaining
+#### Enchaînements
 ```ocaml
 let d = 2 * 3 in
 let e = d * 7 in
 d * e
 ```
 
-Check if `d` and `e` are unbound
+Observer que `d` et sont `e` sont libres
 
-#### Nesting
+#### Imbrications
 ```ocaml
 let d =
     let e = 2 * 3 in
@@ -146,9 +146,9 @@ let d =
   d * 7
 ```
 
-Check if `d` and `e` are unbound
+Observer que `d` et sont `e` sont libres
 
-#### Inner Shadowing
+#### Masquage interne
 
 ```ocaml
 let i = 21
@@ -158,9 +158,9 @@ let i = 21
 let i = 7 in i * 2;;
 ```
 
-Check the value of `i`
+Observer la valeur de `i`
 
-#### Same-Level Shadowing
+#### Masquage
 
 ```ocaml
 let h = 2 * 3
@@ -174,17 +174,17 @@ let e = h * 7
 let h = 7
 ```
 
-Check the value of `e` hasn't changed.
+La valeur de `e` n'a pas changé.
 
-#### Local Functions
+#### Fonctions locales
 
 ```ocaml
 let sq x = x * x in sq 7 * sq 7
 ```
 
-Check that `sq` is not bound.
+Vérifier que `sq` est non
 
-### Closures
+### Fermeture
 
 ```ocaml
 let j = 6
@@ -207,3 +207,14 @@ k 7
 ```
 
 Try to guess the output of `k 7` before evaluating it.
+
+### Trivia
+
+Les expressions suivantes sont équivalentes
+```ocaml
+let x = 2 * 3 in 7 * x
+```
+
+```ocaml
+(fun x -> 7 * x) (2 * 3)
+```
