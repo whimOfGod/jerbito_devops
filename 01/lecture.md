@@ -1,5 +1,7 @@
 # Expressions et valeurs
 
+**Note** Toutes les expressions présentées dans le cours doivent être évaluées dans `utop`.
+
 ## Type de données et opérations de base
 
 ### Entiers
@@ -20,19 +22,25 @@ Les entiers on le type `int`
 
 Opérations disponibles: `+`, `-`, `*`, `/`, `mod`
 
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Int`](https://ocaml.org/api/Int.html).
+
 ### Flottants
 
-Les nombres flottants ont le type `float`
+Les nombres flottants ont le type `float`.
 
 ```ocaml
 2.0 *. Float.pi
 ```
+
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Float`](https://ocaml.org/api/Float.html).
 
 Opérations disponibles: `+.`, `-.`, `*.`, `/.`
 
 L'expression `2 + 2.0` n'est pas valide. Pas de conversions de type implicites.
 
 ### Booléens
+
+Les Booléens ont le type `bool`. Ce ne sont pas des entiers.
 
 ```ocaml
 true
@@ -57,9 +65,28 @@ if 0 = 1 then 3 else 7
 2 * if true then 3 else 7
 ```
 
-Pas d'opérateur ternaire de test. En OCaml, tout ce qui s'éxecute est une expression.
+Opérations disponibles:
+- `not` (négation « non »)
+- `&&` (conjonction « et »)
+- `||` (disjonction « ou »).
+
+Pas d'opérateur ternaire de test. En OCaml, tout ce qui s'éxecute est une expression, `if ... then ... else ...` aussi.
+
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Bool`](https://ocaml.org/api/Bool.html).
+
+### Caractères
+
+Les caractères ont le type `char`.
+
+```ocaml
+'a'
+```
+
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Char`](https://ocaml.org/api/Char.html).
 
 ### Chaînes de caractères
+
+Les chaînes de caractères ont le type `string`.
 
 ```ocaml
 "Hello world!"
@@ -68,6 +95,13 @@ Pas d'opérateur ternaire de test. En OCaml, tout ce qui s'éxecute est une expr
 ```ocaml
 "Hello" ^ " " ^ "world!"
 ```
+
+```ocaml
+"abcdefghijk".[4]
+```
+
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`String`](https://ocaml.org/api/String.html).
+
 
 ## Fonctions et définitions
 
