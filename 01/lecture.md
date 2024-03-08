@@ -1,12 +1,13 @@
-# Expressions et valeurs
+# Expressions et valeurs &mdash; Cours
 
-**Note** Toutes les expressions présentées dans le cours doivent être évaluées dans `utop`.
+**Note** Toutes les expressions présentées dans le cours doivent être évaluées
+dans `utop`.
 
 ## Type de données et opérations de base
 
 ### Entiers
 
-Les entiers on le type `int`
+Les entiers ont le type `int`
 
 ```ocaml
 2 + 2
@@ -22,7 +23,8 @@ Les entiers on le type `int`
 
 Opérations disponibles: `+`, `-`, `*`, `/`, `mod`
 
-Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Int`](https://ocaml.org/api/Int.html).
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et
+[`Int`](https://ocaml.org/api/Int.html).
 
 ### Flottants
 
@@ -32,7 +34,8 @@ Les nombres flottants ont le type `float`.
 2.0 *. Float.pi
 ```
 
-Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Float`](https://ocaml.org/api/Float.html).
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et
+[`Float`](https://ocaml.org/api/Float.html).
 
 Opérations disponibles: `+.`, `-.`, `*.`, `/.`
 
@@ -70,9 +73,11 @@ Opérations disponibles:
 - `&&` (conjonction « et »)
 - `||` (disjonction « ou »).
 
-Pas d'opérateur ternaire de test. En OCaml, tout ce qui s'éxecute est une expression, `if ... then ... else ...` aussi.
+Pas d'opérateur ternaire de test. En OCaml, tout ce qui s'exécute est une
+expression, `if ... then ... else ...` aussi.
 
-Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Bool`](https://ocaml.org/api/Bool.html).
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et
+[`Bool`](https://ocaml.org/api/Bool.html).
 
 ### Caractères
 
@@ -82,14 +87,21 @@ Les caractères ont le type `char`.
 'a'
 ```
 
-Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`Char`](https://ocaml.org/api/Char.html).
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et
+[`Char`](https://ocaml.org/api/Char.html).
 
 ### Chaînes de caractères
 
-Les chaînes de caractères ont le type `string`.
+Les chaînes de caractères ont le type `string`. Les chaînes sont _immutables_
+elles ne peuvent pas êtres modifiées. Les opérations dont les résultats sont des
+chaînes créent de nouvelles chaînes, elles laissent leurs paramètres inchangées.
 
 ```ocaml
 "Hello world!"
+```
+
+```ocaml
+"\u{1F42B}"
 ```
 
 ```ocaml
@@ -100,7 +112,20 @@ Les chaînes de caractères ont le type `string`.
 "abcdefghijk".[4]
 ```
 
-Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et [`String`](https://ocaml.org/api/String.html).
+```ocaml
+let a = "bonjour"
+```
+
+```ocaml
+String.lowercase_ascii a
+```
+
+```ocaml
+a
+```
+
+Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et
+[`String`](https://ocaml.org/api/String.html).
 
 
 ## Fonctions et définitions
@@ -125,7 +150,8 @@ float_of_int
 float_of_int 42
 ```
 
-En OCaml on appelle une fonction de la même manière qu'une commande en ligne: sans parenthèses. On sépare les arguments avec des espaces.
+En OCaml on appelle une fonction de la même manière qu'une commande en ligne:
+sans parenthèses. On sépare les arguments avec des espaces.
 
 #### À plusieurs paramètres
 
@@ -140,7 +166,7 @@ pow 2.0 10.0
 ```
 
 ```ocaml
-max (21 * 2) (int_of_string "713")
+Int.max (21 * 2) (int_of_string "713")
 ```
 
 ```ocaml
@@ -153,6 +179,8 @@ int_of_float (sqrt (float_of_int (int_of_string "81")))
 
 ### Définitions globales
 
+Toutes les définitions entrées directement dans `utop` sont globales.
+
 ```ocaml
 let a = 11
 ```
@@ -163,8 +191,32 @@ a * 4 - 1
 
 ### Définition de fonctions
 
+Les fonctions sont des objets comme les autres :
+
+```ocaml
+fun x -> x * x
+```
+
+On peut utiliser une fonction sans lui donner de nom :
+
+```ocaml
+(fun x -> x * x) 3
+```
+
+```ocaml
+let sq = fun x -> x * x
+```
+
+```ocaml
+sq 3
+```
+
 ```ocaml
 let sq x = x * x
+```
+
+```ocaml
+sq 3
 ```
 
 ```ocaml
@@ -179,7 +231,7 @@ let d = 2 * 3 in d * 7
 
 Observer que `d` est libre
 
-#### Enchaînements de défintions
+#### Enchaînements de définitions
 
 ```ocaml
 let d = 2 * 3 in
@@ -189,7 +241,7 @@ d * e
 
 Observer que `d` et `e` sont libres
 
-#### Imbrications de défintions
+#### Imbrications de définitions
 
 ```ocaml
 let d =
@@ -236,7 +288,7 @@ let sq x = x * x in sq 7 * sq 7
 
 Après, `sq` est libre
 
-### Fermeture
+### Fermetures
 
 ```ocaml
 let j = 6
@@ -269,4 +321,43 @@ let x = 2 * 3 in 7 * x
 
 ```ocaml
 (fun x -> 7 * x) (2 * 3)
+```
+
+### Fonctions Récursives
+
+Les fonction récursives ne peuvent pas être anonymes et doivent être définies en
+utilisant le mot clé `rec`.
+
+```ocaml
+let rec string_repeat s n = if n > 0 then s ^ string_repeat s (n - 1) else ""
+```
+
+```ocaml
+let rec zioup s n = if n > 0 then s ^ ", " ^ \ zioup s (n - 1) else "."
+```
+
+```ocaml
+let rec piouz s n = if n > 0 then piouz s (n - 1) ^ ", " ^ s else "."
+```
+
+```ocaml
+let rec par be en i = if i = 0 then "" else be ^ par be en (i - 1) ^ en
+```
+
+```ocaml
+let rec fact n = if n = 0 then 1 else n * fact (n - 1)
+```
+
+```ocaml
+let rec fibo n =
+  if n = 0 then 0
+  else if n = 1 then 1
+  else fibo (n - 1) + fibo (n - 2)
+```
+
+```ocaml
+let rec fibo n = match n with
+  | 0 -> 0
+  | 1 -> 1
+  | n -> fibo (n - 1) + fibo (n - 2)
 ```
