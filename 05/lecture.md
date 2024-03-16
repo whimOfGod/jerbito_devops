@@ -1,8 +1,5 @@
 # Polymorphisme Paramétrique &mdash; Cours
 
-**Note**: Dans d'autres langages le polymorphisme paramétrique est souvent
-appellé _généricité_. On parles de types et de fonctions génériques.
-
 ## Types prédéfinis
 
 Les types `option` est `list` sont des variants avec des paramètres de type.
@@ -57,10 +54,26 @@ Algorithmiquement, la fonction `int_map` est la même que la fonction `List.map`
 Cependant les paramètres de types ont été spécifiés alors que les paramètres de
 données ne l'ont pas été.
 
-**Remarque** Dans d'autres langages, notamment Java, Scala, Kotlin, Swift et Go,
-il souvent possible de ne pas spécifier les paramètres de types quand on appelle
-une fonction avec paramètre de type. Pas pas toujours! Parfois, il faut indiquer
-au compilateur quels sont paramètres de types.
+**Remarque**:
+* Dans d'autres langages de programmation, le polymorphisme paramétrique est
+souvent appelé _généricité_. On parle de types et de fonctions génériques.
+C'est notamment le cas en Java, Scala, Kotlin, Swift, Go et Rust. Les paramètres
+de types sont souvent indiqués entre des chevrons : `<` et `>`.
+* Il existe d'autres formes de polymorphisme, notamment:
+    - Le _polymorphisme ad-hoc_ permet de donner le même nom a des fonctions
+      différentes mais manipulant des données apparentées. C'est le
+      polymorphisme de la résolution des méthodes dans les langages orientés
+      objet.
+    - Le _row polymorphism_ (également appelé _duck typing_) permet à une même
+      fonction d'accepter des enregistrements de type différents, mais ayant au
+      moins certains champs. Il existe aussi une version pour les variants.
+* Dans les langages avec types et fonctions génériques, il souvent possible de
+ne pas spécifier les paramètres de types quand on appelle une fonction
+générique. Mais pas toujours! Parfois, il faut indiquer au compilateur quels
+sont paramètres de types.
+* Les types `option` et `list` sont des variants avec paramètres de types. Il
+  existe aussi des _variants polymorphes_ en OCaml, mais c'est autre chose, qui
+  n'est pas présenté de ce cours.
 
 ## 
 
@@ -127,13 +140,6 @@ let fact n = (fix fact_step) n
 ```
 
 ```ocaml
-List.fold_right h b as |> f = List.fold_left g c as
-if 
-b = c
-f (h a as) = g a (f as)
-```
-
-```ocaml
 let rec loop f x = Either.(match f x with
   | Left x -> x
   | Right x -> loop f x);;
@@ -143,8 +149,30 @@ let fact_step (f, n) = match n with
   | n -> Either.Right (n * f, n - 1)
 
 let fact n = loop fact_step (1, n)
-
-
-let rec loop f b = let a = f (b, a) in a
+```
 
 ## File (LIFO)
+
+```ocaml
+type 'a queue = {
+  front : 'a list;
+  rrear : 'a list (* reversed *)
+}
+
+let empty = { front = []; rrear = [] }
+
+let check = function
+| { front = []; rrear } -> { front = List.rev rrear; rrear = []}
+| q -> q
+
+let snoc x { front; rrear = r } = check { front; rrear = x :: r }
+
+let hd = function
+| { front = x :: _; _ } -> x
+| _ -> failwith "hd"
+
+let tl = function
+| { front = _ :: front; rrear } -> check { front; rrear }
+| _ -> failwith "tl"
+
+```
