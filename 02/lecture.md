@@ -290,15 +290,13 @@ let f l =
   let h, t = l in h
 ```
 
-affiche tous les deux un avertissement:
+affiche tous les deux un avertissement :
 
 ```
 Line 1, characters 6-27:
 Warning 8 [partial-match]: this pattern-matching is not exhaustive.
 Here is an example of a case that is not matched:
 []
-
-val f : 'a list -> 'a = <fun>
 ```
 
 #### Exemples :

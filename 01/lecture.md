@@ -94,7 +94,7 @@ Voir les modules [`Stdlib`](https://ocaml.org/api/Stdlib.html) et
 
 Les chaînes de caractères ont le type `string`. Les chaînes sont _immutables_
 elles ne peuvent pas êtres modifiées. Les opérations dont les résultats sont des
-chaînes créent de nouvelles chaînes, elles laissent leurs paramètres inchangées.
+chaînes créent de nouvelles chaînes, elles laissent leurs paramètres inchangés.
 
 ```ocaml
 "Hello world!"
@@ -150,12 +150,12 @@ float_of_int
 float_of_int 42
 ```
 
-En OCaml on appelle une fonction de la même manière qu'une commande en ligne:
+En OCaml on appelle une fonction de la même manière qu'une commande en ligne :
 sans parenthèses. On sépare les arguments avec des espaces.
 
 #### À plusieurs paramètres
 
-Parentheses!
+Parenthèses !
 
 ```ocaml
 pow
@@ -229,7 +229,7 @@ let float_sq x = x *. x
 let d = 2 * 3 in d * 7
 ```
 
-Observer que `d` est libre
+Observer que `d` est libre.
 
 #### Enchaînements de définitions
 
@@ -239,7 +239,7 @@ let e = d * 7 in
 d * e
 ```
 
-Observer que `d` et `e` sont libres
+Observer que `d` et `e` sont libres.
 
 #### Imbrications de définitions
 
@@ -250,7 +250,7 @@ let d =
   d * 7
 ```
 
-Observer que `d` et `e` sont libres
+Observer que `d` et `e` sont libres.
 
 #### Masquage interne
 
@@ -262,7 +262,7 @@ let i = 21
 let i = 7 in i * 2;;
 ```
 
-Observer la valeur de `i`
+Observer la valeur de `i`.
 
 #### Masquage
 
@@ -286,7 +286,7 @@ La valeur de `e` n'a pas changé.
 let sq x = x * x in sq 7 * sq 7
 ```
 
-Après, `sq` est libre
+Après, `sq` est libre.
 
 ### Fermetures
 
@@ -314,7 +314,7 @@ Essayer de deviner la valeur de `k 7` avant de l'évaluer.
 
 ### Trivia
 
-Les expressions suivantes sont équivalentes
+Les expressions suivantes sont équivalentes :
 ```ocaml
 let x = 2 * 3 in 7 * x
 ```
