@@ -156,23 +156,24 @@ let fact n = loop fact_step (1, n)
 ```ocaml
 type 'a queue = {
   front : 'a list;
-  rrear : 'a list (* reversed *)
+  rear_rev : 'a list
 }
 
-let empty = { front = []; rrear = [] }
+let empty = { front = []; rear_rev = [] }
 
-let check = function
-| { front = []; rrear } -> { front = List.rev rrear; rrear = []}
+let is_empty q = q.front = []
+
+let hd q = List.hd q.front
+
+let check = function (* private *)
+| { front = []; rear_rev } -> { front = List.rev rear_rev; rear_rev = [] }
 | q -> q
 
-let snoc x { front; rrear = r } = check { front; rrear = x :: r }
+let snoc x q = check { q with rear_rev = x :: q.rear_rev }
 
-let hd = function
-| { front = x :: _; _ } -> x
-| _ -> failwith "hd"
+let tl q = check { q with front = List.tl q.front }
 
-let tl = function
-| { front = _ :: front; rrear } -> check { front; rrear }
-| _ -> failwith "tl"
-
+let uncons = function
+| { front = x :: front; _ } as q -> Some (x, { q with front })
+| _ -> None
 ```
