@@ -2,50 +2,75 @@
 
 ## Manipulation de listes
 
-Pensez à écrire quelques tests pour vérifier que votre solution fonctionne et
-vous familiariser avec la syntaxe des listes.
+Pensez à écrire quelques tests pour vérifier que votre solution fonctionne et vous familiariser avec la syntaxe des listes.
 
 ### Question 1
 
-1. En utilisant `List.rev`, écrire la fonction `last : 'a list -> 'a` qui retourne
-   le dernier élément d'une liste.
+En utilisant `List.rev`, écrire la fonction `last : 'a list -> 'a` qui retourne le dernier élément d'une liste.
 
 ### Question 2
 
-Définir la fonction `swap : 'a list -> 'a list` qui échange les deux premiers
-éléments d'une liste. Les listes de moins de deux éléments sont inchangés.
+Définir la fonction `swap : 'a list -> 'a list` qui échange les deux premiers éléments d'une liste. Les listes de moins de deux éléments sont inchangés.
 
-Par exemple, `swap [1; 2; 3]` retourne `[2; 1; 3]
+Par exemple,
+```ocaml
+swap [1; 2; 3]
+(* donne [2; 1; 3] *)
+```
 
 ### Question 3
 
-En utilisant `List.init`, définir la fonction `repeat : 'a -> int -> 'a list` qui
-retourne une liste contenant n fois l'élément donné en entrée. Si n est
-inférieure à 0, elle retourne la liste vide.
+En utilisant `List.init`, définir la fonction `repeat : 'a -> int -> 'a list` qui retourne une liste contenant n fois l'élément donné en entrée. Si n est inférieure à 0, elle retourne la liste vide.
 
-Par exemple, `repeat "Bonjour" 3` retourne `["Bonjour"; "Bonjour"; "Bonjour" ]`.
+Par exemple,
+```ocaml
+repeat "Bonjour" 3
+(* retourne ["Bonjour"; "Bonjour"; "Bonjour" ] *)
+```
 
 ### Question 4
 
-En utilisant `List.init`, définir la fonction `range_i : int -> int -> int list`
-tel que `range_i i j` retourne la liste `[i; i+1; ..; j]`.
+En utilisant `List.init`, définir la fonction `range_i : int -> int -> int list` tel que `range_i i j` retourne la liste `[i; i+1; ..; j]`.
 
 Si i > j alors `range i j` donne la liste vide.
 
-Par exemple, `range_i 3 6` retourne `[3; 4; 5; 6]`.
+Par exemple,
+```ocaml
+range_i 3 6
+(* donne [3; 4; 5; 6] *)
+```
 
 ## Fonctions récursives sur les listes
 
 ### Question 5
 
-Définir la fonction `decr_list : int list -> int list` qui retire 1 à chaque
-élément de la liste en entrée.
+Définir la fonction `decr_list : int list -> int list` qui retire 1 à chaque élément de la liste en entrée.
 
 ### Question 6
 
-Définir la fonction de signature `interpose : 'a -> 'a list -> 'a list` tel que
-`interpose z ll` intercale `z` entre les éléments de `ll`. Le premier et le
-dernier éléments sont le premier et le dernier éléments de `ll`.
+Redéfinir ĺes fonctions de la librairie standard (sans les utiliser évidemment) :
+
+- `rev : 'a list -> 'a list`
+
+- `mem : 'a -> 'a list -> bool`
+
+- `append : 'a list -> 'a list -> 'a list`
+
+Ainsi que la fonction `repeat` de la question 3, sans utiliser `List.init`.
+
+### Question 7
+
+Définir la fonction `flat : 'a list list -> 'a list` qui applanit d’un niveau une liste de listes sans utiliser la fonction `List.flatten`.
+
+Par exemple,
+```ocaml
+flat [[1; 2]; [3; 4]]
+(* donne [1; 2; 3; 4] *)
+```
+
+### Question 8
+
+Définir la fonction de signature `interpose : 'a -> 'a list -> 'a list` tel que `interpose z ll` intercale `z` entre les éléments de `ll`. Le premier et le dernier éléments sont le premier et le dernier éléments de `ll`.
 
 Par exemple,
 ```ocaml
@@ -59,10 +84,9 @@ interpose 0 [1;2;3]
 (* donne [1;0;2;0;3] *)
 ```
 
-### Question 7
+### Question 9
 
-Définir la fonction de `stutter : 'a list -> 'a list` qui double la taille d’une
-liste en dupliquant chacun de ses éléments.
+Définir la fonction de `stutter : 'a list -> 'a list` qui double la taille d’une liste en dupliquant chacun de ses éléments.
 
 Par exemple :
 
@@ -74,11 +98,9 @@ stutter [1;2;3]
 (* donne [1;1;2;2;3;3] *)
 ```
 
-### Question 8
+### Question 10
 
-Définir la fonction de signature `add_list : int list -> int list -> int list`
-qui somme les deux listes d'entrée terme à terme. Lorsque xs et ys ne sont pas
-de même longueur, on conserve tels quels les éléments en plus.
+Définir la fonction de signature `add_list : int list -> int list -> int list` qui somme les deux listes d'entrée terme à terme. Lorsque xs et ys ne sont pas de même longueur, on conserve tels quels les éléments en plus.
 
 Par exemple:
 ```ocaml
@@ -95,9 +117,8 @@ add_list [1;2;3] [4;5])
 (* donne [5;7;3] *)
 ```
 
-### Question 9
-Définir la fonction `remove_dup : 'a list -> 'a list` qui retire les duplicatas
-de la liste. On supposera la liste triée.
+### Question 11
+Définir la fonction `remove_dup : 'a list -> 'a list` qui retire les duplicatas de la liste. On supposera la liste triée.
 
 Par exemple,
 
@@ -109,10 +130,9 @@ retourne
 [1; 2; 3]
 ```
 
-### Question 10
+### Question 12
 
-Définir la fonction `is_sorted : int list -> bool` qui retourne `true` si la liste
-en entrée est triée.
+Définir la fonction `is_sorted : int list -> bool` qui retourne `true` si la liste en entrée est triée.
 
 Par exemple,
 ```ocaml
@@ -126,40 +146,29 @@ is_sorted [1; 3; 2]
 (* donne false *)
 ```
 
-### Question 11
-
-Définir la fonction `reverse : 'a list -> 'a list` qui a le même comportement
-que `List.rev` (sans l'utiliser évidemment !).
-
-Indice : il faut utiliser une fonction récursive locale.
-
-
 ## Itérateurs
-
-### Question 12
-
-Redéfinir `incr_list : int list -> int` en utilisant un itérateur.
 
 ### Question 13
 
-Définir une fonction `only_less_then_5 : int_list -> int_list` en utilisant
-`List.filter` qui retourne la liste en entrée dont les valeurs supérieurs ou
-égales à 5 ont été retirées.
+Redéfinir `incr_list : int list -> int` en utilisant un itérateur.
 
 ### Question 14
+
+Définir une fonction `only_less : int -> int list -> int list` en utilisant `List.filter` telle que `only_less n ll` retourne la liste `ll` dont les valeurs supérieurs ou égales à n ont été retirées.
+
+### Question 15
 
 Redéfinir les fonctions de la librairie standard `rev` et `append` en utilsant
 des itérateurs.
 
-### Question 15
-
-Définir une fonction `max : int list -> int` qui retourne le maximum d'une liste.
-Utiliser `failwith "Liste vide"` pour le cas de la liste vide.
-
 ### Question 16
+
+Définir une fonction `max : int list -> int` qui retourne le maximum d'une liste. Utiliser `failwith "Liste vide"` pour le cas de la liste vide.
+
+### Question 17
 
 Redéfinir `is_sorted : int list -> bool`  avec un itérateur.
 
-### Question 17
+### Question 18
 
 Redéfinir `remove_dup : 'a list -> 'a list` avec un itérateur.

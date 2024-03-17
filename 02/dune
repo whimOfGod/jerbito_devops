@@ -1,1 +1,2 @@
-(library (name m02))
+(library
+ (name m02))

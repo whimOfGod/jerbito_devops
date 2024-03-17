@@ -350,7 +350,7 @@ let rec longueur ll = match ll with
 
 #### Somme des éléments d'une liste
 ```ocaml
-let rec somme ll = match ll with
+let rec sum ll = match ll with
  | [] -> failwith "todo"
  | head :: tail -> failwith "todo"
 ```
