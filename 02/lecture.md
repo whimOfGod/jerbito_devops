@@ -1,3 +1,16 @@
+# Notes générales
+
+Mes cours sont inspirées des cours de :
+- [Emmanuel Chailloux](https://www-apr.lip6.fr/~chaillou/Public/enseignement/2022-2023/pf/)
+- [ean-Christophe Filliâtre](https://www.lri.fr/~filliatr/m1/cours-ocaml.en.html)
+
+N'hésitez pas à aller les consulter :)
+
+Il y a aussi de nombreux autres supports utiles pour apprendre OCaml :
+- [ocaml.org](https://ocaml.org/)
+- [Real World OCaml](https://dev.realworldocaml.org/) (c'est aussi un livre)
+- ...
+
 # Listes &mdash; Cours
 
 ## Définition
