@@ -16,7 +16,7 @@
 
 ## Organisation
 
-Le cours comporte 9 demi journée, chacune a deux parties. Dans les 18 répertoires qui correspondennt il y a:
+Le cours comporte 9 demi journée, possiblement en plusieurs parties. Dans les répertoires qui correspondennt il y a:
 - `lecture.md`, le cours
 - `tutorial.md`, les exercises
 
