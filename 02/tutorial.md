@@ -150,7 +150,7 @@ is_sorted [1; 3; 2]
 
 ### Question 13
 
-Redéfinir `incr_list : int list -> int` en utilisant un itérateur.
+Redéfinir `decr_list : int list -> int list` en utilisant un itérateur.
 
 ### Question 14
 
