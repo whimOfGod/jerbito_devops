@@ -361,3 +361,22 @@ let rec fibo n = match n with
   | 1 -> 1
   | n -> fibo (n - 1) + fibo (n - 2)
 ```
+
+### Application partielles
+
+Il est possible de pas fournir tous les arguments a une fonction.
+```ocaml
+( + )
+```
+
+```ocaml
+( + ) 1
+```
+
+```ocaml
+let f = ( + ) 1
+```
+
+```ocaml
+f 4
+```
