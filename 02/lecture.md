@@ -3,6 +3,7 @@
 Mes cours sont inspirées des cours de :
 - [Emmanuel Chailloux](https://www-apr.lip6.fr/~chaillou/Public/enseignement/2022-2023/pf/)
 - [Jean-Christophe Filliâtre](https://www.lri.fr/~filliatr/m1/cours-ocaml.en.html)
+- Vincent Balat
 
 N'hésitez pas à aller les consulter :)
 
