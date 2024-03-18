@@ -3,6 +3,7 @@ run = ["dune", "exec", "jerbo"]
 entrypoint = "01/task.ml"
 hidden = ["_build"]
 onBoot = "utop -version"
+modules = ["web:v2-20230623-0b7a606"]
 
 [languages.OCaml]
 pattern = "**/*.{ml,mli}"
@@ -12,3 +13,7 @@ start = "ocamllsp"
 
 [nix]
 channel = "stable-23_11"
+
+[deployment]
+publicDir = "/"
+deploymentTarget = "static"
