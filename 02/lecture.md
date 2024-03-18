@@ -358,29 +358,30 @@ Voici quelques exemples .
 #### Calculer la longueur d'une liste
 ```ocaml
 let rec longueur ll = match ll with
- | [] -> failwith "todo"
- | x :: xs -> failwith "todo"
+ | [] -> 0
+ | x :: xs -> 1 + longueur xs
 ```
 
 #### Somme des éléments d'une liste
 ```ocaml
 let rec sum ll = match ll with
- | [] -> failwith "todo"
- | head :: tail -> failwith "todo"
+ | [] -> 0
+ | head :: tail ->  head + sum tail
 ```
 
 #### Mettre des majuscules au début des mots
 ```ocaml
 let rec capitalize ll = match ll with
- | [] -> failwith "todo"
- | _ :: _ ->  failwith "todo" (* String.capitalize_ascii *)
+ | [] -> []
+ | head :: tail ->  String.capitalize_ascii head :: capitalize tail
 ```
 
 #### Rechercher un élément
 ```ocaml
-let rec contient ll = match ll with
-  | [] ->
-  | _ :: _ -> failwith "todo"
+let rec contient elt ll = match ll with
+  | [] -> false
+  | x :: xs when x = elt -> true
+  | _ :: xs -> contient elt xs
 ```
 
 ## Fonctions d'ordre supérieur
