@@ -89,17 +89,30 @@ repeat "hello world" 5;;
 let range_i arg1 arg2 =
 if arg1 > arg2 then []
 else List.init (arg2 - arg1 + 1) (fun index -> arg1 + index);;
- (* Cas d'utilisation *)
+(* Cas d'utilisation *)
 range_i 15 35 ;;
 
-(* Exercice 6 *) 
 
+
+
+
+(* EXERCICE 5 *))
+utop # let rec decrement_list array_list =
+ match array_list with
+| [] -> []
+| hd :: tl -> (hd - 1) :: decrement_list tl;;
+
+
+
+
+
+(* EXERCICE 6 *) 
 let liste_initiale = [3; 7; 10; 2; 5];;
 val liste_initiale : int list = [3; 7; 10; 2; 5]
 
 decrement_list liste_initiale ;;
 
-utop # let rec rev lst =
+       let rec rev lst =
        let rec rev_acc acc = function
        | [] -> acc
        | hd :: tl -> rev_acc (hd :: acc) tl
@@ -108,16 +121,14 @@ utop # let rec rev lst =
 
 val rev : 'a list -> 'a list = <fun>
 
-utop # let rec mem elem lst =
+       let rec mem elem lst =
        match lst with
-      | [] -> false
-      | hd :: tl -> hd = elem || mem elem tl ;;
-
-val mem : 'a -> 'a list -> bool = <fun>
-─( 15:07:23 )─< command 101 >─────────────────────────────────{ counter: 0 }─
-utop # let rec append lst1 lst2 =
+        | [] -> false
+        | hd :: tl -> hd = elem || mem elem tl ;;
+  
+       let rec append lst1 lst2 =
        match lst1 with
-       | [] -> lst2
-       | hd :: tl -> hd :: append tl lst2;;
+         | [] -> lst2
+         | hd :: tl -> hd :: append tl lst2;;
 
 val append : 'a list -> 'a list -> 'a list = <fun>
