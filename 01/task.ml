@@ -28,3 +28,9 @@ let rec pow x n =
 let rec div n d =
   if n < d then 0
   else 1 + div (n - d) d
+
+let char_succ c = 
+ if c < '\255' then
+ c |> int_of_char |> succ |> char_of_int
+ else 
+ '\000';;
