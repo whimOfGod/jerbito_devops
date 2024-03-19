@@ -413,7 +413,7 @@ est une  valeur de type  `int -> int`.
 let apply op x y = op x y
 ```
 ```ocaml
-apply (fun x -> x + 1) 2 3
+apply (fun x -> x + y) 2 3
 ```
 
 ```ocaml
@@ -422,7 +422,7 @@ apply ( * ) 2 3
 
 Ou encore,
 ```ocaml
-((fun f -> (f 2)) (fun x -> x + 1)
+(fun f -> (f 2)) (fun x -> x + 1)
 ```
 
 ### Retourner une fonction
@@ -611,6 +611,7 @@ let l1 = [ 1; 2; 3 ];;
 ```
 ```ocaml
 let l2 = 4 :: l1;;
+```
 ```ocaml
 l1;;
 ```
@@ -619,10 +620,12 @@ Tableau :
 ```ocaml
 let a1 = [| 0 ; 1; 2; 3 |];;
 ```
+
 ```ocaml
 let a2 = a1;;
 a2.(0) <- 4;;
 ```
+
 ```ocaml
 a1;;
 ```
