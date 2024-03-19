@@ -1,5 +1,29 @@
 # Polymorphisme Paramétrique &mdash; Travaux pratiques
 
+### Files
+
+Écrire les fonctions suivantes pour le type `'a queue`:
+* `of_list : 'a queue -> 'a list` Cette fonction doit vérifier la propriété suivante : `hd (of_list (x :: u)) = x`
+* `to_list : 'a list -> 'a queue` Cette fonction doit vérifier la propriété suivante : `List.hd (to_list (snoc x q)) = hd (snoc x q)`
+* `rev : 'a queue -> 'a queue`
+* `append : 'a queue -> 'a queue -> 'a queue`
+* `concat : 'a queue queue -> 'a queue`
+* `filter : ('a -> bool) -> 'a queue -> 'a queue`
+* `map : ('a -> 'b) -> 'a queue -> 'b queue`
+* `fold : ('b -> 'a -> 'b) -> 'b -> 'a queue -> 'b`
+
+### Fonction d'association
+
+Écrire une fonction `def : ('a -> 'b) -> 'a -> 'b -> 'a -> 'b` telle que
+* `def f x y x = y`
+* `def f x y z = f z` si `x` &ne; `z`
+
+En utilisant la fonction `def` écrire une fonction `sq : int -> int` telle que `sq x` = `x * x` si et seulement si `x` &le; 10. Si `x` > 10, la fonction `sq` lève une exception `Failure` avec le message `"undefined"`.
+
+En utilisant `def` écrire une fonction `bogus_sq : int -> int` telle que `sq x` = `x * x` pour tous les entiers, sauf 42, où `sq 42 = 42`.
+
+Écrire une fonction `sq'` ayant le même comportement que `sq` en utilisant `List.assoc`.
+
 ### `tstamp`
 Le type suivant représente la disponibilité d'une donnée à une certaine date.
 ```ocaml
@@ -13,7 +37,7 @@ Définir les fonctions suivantes:
 * `tstamp_dupe : 'a tstamp -> 'a tstamp tstamp`
 * `tstamp_map : ('a -> 'b) -> 'a tstamp -> 'b tstamp`
 
-Dans le cas de `tstamp_join`, on prend la date la plus récénte.
+Dans le cas de `tstamp_join`,  on prend la date la plus récente.
 
 ### Observable
 
@@ -120,11 +144,3 @@ Ajouter des annotations de type à la définition de `obs_reduce` de telle sorte
 rendre son type plus adapté a son contexte d'utilisation et plus facile à
 comprendre.
 
-### Culture générale
-
-Les fonctions `concat_map`, `merge_map`, `switch_map` et `exhaust_map`
-présentées ici suivent la même logique que celle du _framework_ ReactiveX
-(anciennement Rx) qui est disponible dans les langages Java, JavaScript, Scala,
-C++, Lua, Python, Go, Kotlin, Swift (et quelques autres). La différence est que
-les fonctions gèrent les flux d'évènement en temps réel, au fur et a mesure
-qu'ils se produisent.
