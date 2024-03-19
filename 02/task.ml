@@ -132,3 +132,24 @@ val rev : 'a list -> 'a list = <fun>
          | hd :: tl -> hd :: append tl lst2;;
 
 val append : 'a list -> 'a list -> 'a list = <fun>
+
+(* QUELQUES MANUPULATION *) 
+
+(* 
+utop #  let last my_new_list =
+       match List.rev my_new_list with
+       | [] -> failwith "La liste est vide"
+       | hd :: _ -> hd ;;
+val last : 'a list -> 'a = <fun>
+─( 10:07:38 )─< command 30 >──────────────────────────────────────────────{ counter: 0 }─
+utop # last [5;4;9;8;4;1;5;4;9] ;;
+- : int = 9
+─( 10:12:52 )─< command 31 >──────────────────────────────────────────────{ counter: 0 }─
+utop # let first_element_of_list = List.hd my_new_list ;;
+val first_element_of_list : int = 1
+─( 10:13:51 )─< command 32 >──────────────────────────────────────────────{ counter: 0 }─
+utop # let reverse_element_of_list = List.rev my_new_list ;;
+val reverse_element_of_list : int list = [8; 7; 6; 5; 4; 3; 2; 1]
+─( 10:15:09 )─< command 33 >──────────────────────────────────────────────{ counter: 0 }─
+utop # let last_element_of_list =  List.hd reverse_element_of_list;;
+val last_element_of_list : int = 8 *)
