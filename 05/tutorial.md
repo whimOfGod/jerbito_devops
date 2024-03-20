@@ -3,8 +3,12 @@
 ### Files
 
 Écrire les fonctions suivantes pour le type `'a queue`:
-* `of_list : 'a list -> 'a queue` Cette fonction doit vérifier la propriété suivante : `hd (of_list (x :: u)) = x :: u`
-* `to_list : 'a queue -> 'a list` Cette fonction doit vérifier la propriété suivante : `List.hd (to_list (snoc x q)) = hd (snoc x q)`
+* `equal : 'a queue -> 'a queue -> bool` dont le résultat est `true` si les deux files comparées contiennent les mêmes valeurs dans le même ordre et `false` dans tous les autres cas
+* `of_list : 'a list -> 'a queue` Cette fonction doit vérifier les propriété suivantes :
+    - `equal (u @ [x] |> of_list) (snoc x (of_list u))`
+    - `hd (of_list (x :: u)) = x`
+* `to_list : 'a queue -> 'a list` Cette fonction doit vérifier la propriété suivante :
+    - `equal (to_list (snoc x q)) (to_list q @ [x])`
 * `rev : 'a queue -> 'a queue`
 * `append : 'a queue -> 'a queue -> 'a queue`
 * `concat : 'a queue queue -> 'a queue`
