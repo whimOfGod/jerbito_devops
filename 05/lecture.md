@@ -18,7 +18,10 @@ comme des nom de fonctions, avec les différences suivantes:
 - L'argument est écrit en premier au lieu d'être écrit en second
 - Les opérations sur les types ont lieu exclusivement pendant la compilation
 
-
+**Remarque**: En OCaml, les types existent uniquement pendant la compilation
+- Aucune information de type n'est disponible pendant l'exécution
+- Il est impossible faire de tester le type d'une valeur pendant l'exécution
+- Dans l’exécutable, aucune information de type n'est présente
 
 Des fonctions telles que `List.map` ou `Option.join` ont également des
 paramètres de type.
@@ -38,7 +41,7 @@ List.map float_of_int [1; 2; 3; 4];;
 Mais en réalité `List.map` a quatre paramètres:
 <ol reversed>
   <li>La liste <tt>[1; 2; 3; 4]</tt> &mdash; paramètre de donnée</li>
-  <li>La fonction <tt>float_of_int</tt> &mdash; paramètre de donné</li>
+  <li>La fonction <tt>float_of_int</tt> &mdash; paramètre de donnée</li>
   <li>Le type <tt>int</tt> &mdash; paramètre de type</li>
   <li>Le type <tt>float</tt> &mdash; paramètre de type</li>
 </ol>
@@ -50,9 +53,9 @@ on peut écrire ceci:
 let int_float_map : (int -> float) -> int list -> float list = List.map
 ```
 
-Algorithmiquement, la fonction `int_map` est la même que la fonction `List.map`.
-Cependant les paramètres de types ont été spécifiés alors que les paramètres de
-données ne l'ont pas été.
+Le code assembleur de la fonction `int_map` est exactement le même que celui de
+la fonction `List.map`. Cependant les paramètres de types ont été spécifiés
+alors que les paramètres de données ne l'ont pas été.
 
 **Remarque**:
 * Dans d'autres langages de programmation, le polymorphisme paramétrique est
@@ -125,17 +128,29 @@ let seq_bind f x = Seq.(x |> map f |> concat)
 
 ```ocaml
 let twice f x = f (f x)
+```
 
+```ocaml
 let thrice f x = f (f (f x))
+```
 
+```ocaml
 let rec iter f n x = if n = 0 then x else iter f (n - 1) (f x);;
+```
 
+```ocaml
 let rec fix f x = let y = f x in if x = y then x else fix f y
+```
 
+```ocaml
 let rec fix f x = f (fix f) x
+```
 
+```ocaml
 let fact_step k n = if n = 0 then 1 else n * k (n - 1)
+```
 
+```ocaml
 let fact n = (fix fact_step) n
 ```
 
@@ -143,11 +158,15 @@ let fact n = (fix fact_step) n
 let rec loop f x = Either.(match f x with
   | Left x -> x
   | Right x -> loop f x);;
+```
 
+```ocaml
 let fact_step (f, n) = match n with
   | 0 -> Either.Left f
   | n -> Either.Right (n * f, n - 1)
+```
 
+```ocaml
 let fact n = loop fact_step (1, n)
 ```
 
@@ -158,21 +177,35 @@ type 'a queue = {
   front : 'a list;
   rear_rev : 'a list
 }
+```
 
+```ocaml
 let empty = { front = []; rear_rev = [] }
+```
 
+```ocaml
 let is_empty q = q.front = []
+```
 
+```ocaml
 let hd q = List.hd q.front
+```
 
+```ocaml
 let check = function (* private *)
 | { front = []; rear_rev } -> { front = List.rev rear_rev; rear_rev = [] }
 | q -> q
+```
 
+```ocaml
 let snoc x q = check { q with rear_rev = x :: q.rear_rev }
+```
 
+```ocaml
 let tl q = check { q with front = List.tl q.front }
+```
 
+```ocaml
 let uncons = function
 | { front = x :: front; _ } as q -> Some (x, { q with front })
 | _ -> None
