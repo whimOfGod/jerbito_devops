@@ -3,8 +3,8 @@
 ### Files
 
 Écrire les fonctions suivantes pour le type `'a queue`:
-* `of_list : 'a queue -> 'a list` Cette fonction doit vérifier la propriété suivante : `hd (of_list (x :: u)) = x`
-* `to_list : 'a list -> 'a queue` Cette fonction doit vérifier la propriété suivante : `List.hd (to_list (snoc x q)) = hd (snoc x q)`
+* `of_list : 'a list -> 'a queue` Cette fonction doit vérifier la propriété suivante : `hd (of_list (x :: u)) = x :: u`
+* `to_list : 'a queue -> 'a list` Cette fonction doit vérifier la propriété suivante : `List.hd (to_list (snoc x q)) = hd (snoc x q)`
 * `rev : 'a queue -> 'a queue`
 * `append : 'a queue -> 'a queue -> 'a queue`
 * `concat : 'a queue queue -> 'a queue`
