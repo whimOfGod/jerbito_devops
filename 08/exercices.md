@@ -1,6 +1,10 @@
 # Arbres
 
-Pour ces questions, utilisez le fichier `arbre.ml`
+Pour ces questions, utilisez le fichier `arbre.ml` pour définir vos fonctions. Utilisez le fichier test_arbre.ml pour tester vos fonctions.
+
+Vous pouvez ensuite lancer les tests avec la commande `dune exec
+test_arbre`. Vous pouvez lancer utop avec le module `Arbre` accessible avec la
+commande `dune utop`.
 
 1. Écrire un type représentant un arbre binaire.
 2. Écrire une fonction pour imprimer un arbre sur la sortie standard.
