@@ -8,3 +8,5 @@ let hd (x, _) = x
 let tl (_, u) = match u with
   | [] -> failwith "tl"
   | x :: u -> (x, u)
+
+let length (_, u) = 1 + List.length u 
