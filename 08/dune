@@ -1,6 +1,7 @@
 (executable
- (name executable)
- (modules executable)
+ (name test_arbre)
+ (public_name test_arbre)
+ (modules test_arbre)
  (libraries arbre))
 
 (library
