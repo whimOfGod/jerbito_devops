@@ -1,0 +1,8 @@
+(executable
+ (name executable)
+ (modules executable)
+ (libraries arbre))
+
+(library
+ (name arbre)
+ (modules arbre))
