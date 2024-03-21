@@ -4,7 +4,14 @@
 
 1. Écrire la fonction `hello_world : unit -> unit`
 2. Déterminez l'ordre dans lequel les arguments d'une fonction sont évalués.
+   Si on a `let f x1 x2 x3 = ...`, et qu'on l'appelle via `f e1 e2 e3`, dans quel ordre `e1`, `e2` et `e3` seront évalués?
 3. Écrire une fonction `print_int_option : int option -> unit`.
+
+```ocaml
+print_int_option None  ----->  "None"
+print_int_option (Some 6) --->  "Some 6"
+```
+
 4. Écrire une fonction imprimant les valeurs du type json suivant :
 
 ```ocaml
