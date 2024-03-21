@@ -169,4 +169,14 @@ int`.
 
 Cependant, le type `t` est le type de _clés_ les fonctions
 
+Définition de dictionnaires dans un module:
+```ocaml
+module IntMap = Map.Make(Int)
+module StringMap = Map.Make(String)
+```
 
+Déclaration de dictionnaire dans une interface:
+```ocaml
+module IntMap : Map.S with type key = int
+module StringMap : Map.S with type key = string
+```
