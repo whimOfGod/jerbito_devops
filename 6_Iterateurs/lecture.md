@@ -6,6 +6,8 @@ val mystere : 'a list -> ('a -> 'b) -> 'b list
 
 À partir du type de `mystere`, tentez de deviner ce que fait cette fonction.
 
+{pause}
+
 {#traverseur}
 ### Les itérateurs : traverser un type de donnée
 
@@ -27,6 +29,8 @@ val iter : 'a list -> ('a -> unit) -> unit
 val fold_left : 'a list -> ('acc -> 'a -> 'acc) -> 'acc -> 'acc
 val fold_right : 'a list -> ('a -> 'acc -> 'acc) -> 'acc -> 'acc
 ```
+
+...
 
 {pause}
 ## Faites les exercices

@@ -170,7 +170,7 @@ let fact_step (f, n) = match n with
 let fact n = loop fact_step (1, n)
 ```
 
-## File (LIFO)
+## File d'attente (LIFO)
 
 ```ocaml
 type 'a queue = {
@@ -210,3 +210,16 @@ let uncons = function
 | { front = x :: front; _ } as q -> Some (x, { q with front })
 | _ -> None
 ```
+
+Une file respecte les propriétés suivantes:
+- `is_empty empty`
+- `not (is_empty (snoc x q))`
+- `hd (snoc x empty) = x`
+- `hd (snoc x q) = hd q` si `is_empty q = false`
+- `is_empty (tl (snoc x empty))`
+- `equal (tl (snoc x q)) (snoc x (tl q))` si `is_empty q = false`
+
+Où `equal : 'a queue -> 'a queue -> bool` est une fonction qui teste si deux
+files d'attente contiennent les mêmes éléments dans le même ordre.
+
+

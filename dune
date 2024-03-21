@@ -1,4 +1,5 @@
 (executable
  (name main)
  (public_name jerbo)
- (libraries m01 m02))
+ (libraries m01 m02 m07))
+(data_only_dirs 03 04)
